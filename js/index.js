@@ -3,17 +3,18 @@ const buttons = document.getElementsByTagName('button');
 for (const button of buttons) {
     button.addEventListener('click', function () {
         const display = document.getElementById('display');
-        if (display.innerText == '00') {
-            display.innerText = '';
-        }
+
         if (button.innerText == '=') {
-            display.innerText = eval(display.innerText);
+            display.value = eval(display.value);
         }
         else if (button.innerText == 'AC') {
-            display.innerText = '00';
+            display.value = '';
+        }
+        else if (button.innerText == 'DEL') {
+            display.value = display.value.slice(0, -1);
         }
         else {
-            display.innerText = display.innerText + button.innerText;
+            display.value = display.value + button.innerText;
         }
 
 
